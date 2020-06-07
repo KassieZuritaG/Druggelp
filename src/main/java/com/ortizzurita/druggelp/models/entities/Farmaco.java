@@ -1,5 +1,4 @@
 package com.ortizzurita.druggelp.models.entities;
-
 import java.io.Serializable;
 import java.util.Calendar;
 

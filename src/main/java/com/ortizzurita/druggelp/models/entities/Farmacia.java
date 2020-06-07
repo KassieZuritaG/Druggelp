@@ -1,6 +1,5 @@
 package com.ortizzurita.druggelp.models.entities;
 
-public class Farmacia {
 import java.io.Serializable;
 
 import javax.persistence.Basic;
