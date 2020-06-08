@@ -97,7 +97,6 @@ private static final long serialVersionUID = 1L;
 		this.tipoMedicamento = tipoMedicamento;
 	}
 	
-	
 	public List<Reserva> getReservas() {
 		return reservas;
 	}
@@ -105,7 +104,6 @@ private static final long serialVersionUID = 1L;
 	public void setReservas(List<Reserva> reservas) {
 		this.reservas = reservas;
 	}
-
 
 	@OneToMany(mappedBy="botica", fetch=FetchType.LAZY) //mappedby debe ser unAtributo en la clase relacionada
 	private List<Reserva> reservas;
