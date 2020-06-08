@@ -1,14 +1,18 @@
 package com.ortizzurita.druggelp.models.entities;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,10 +29,6 @@ public class Reserva implements Serializable{
 	
 	@Column(name="fecha_reserva")
 	private Calendar fechaReserva;
-	
-	@JoinColumn(name="fk_cliente", referencedColumnName="pk_persona")
-	@ManyToOne
-	private Cliente cliente;
 
 	public Reserva() {
 		super();
@@ -55,13 +55,29 @@ public class Reserva implements Serializable{
 		this.fechaReserva = fechaReserva;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	@OneToMany(mappedBy="reserva", fetch= FetchType.LAZY)
+	private List<Farmaco> farmacos;
+
+	public List<Farmaco> getFarmacos() {
+		return farmacos;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setFarmacos(List<Farmaco> farmacos) {
+		this.farmacos = farmacos;
+	}
+	
+	@JoinColumn(name="fk_cliente", referencedColumnName="pk_persona")
+	@ManyToOne
+	private Cliente clientes;
+
+	public Cliente getClientes() {
+		return clientes;
 	}
 
+	public void setClientes(Cliente clientes) {
+		this.clientes = clientes;
+	}
+	
+	
 	
 }

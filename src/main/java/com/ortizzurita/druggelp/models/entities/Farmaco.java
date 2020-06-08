@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +21,7 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="pk_farmaco")
-	private long idfarmaco;
+	private long pk_farmaco;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -42,15 +44,17 @@ private static final long serialVersionUID = 1L;
 
 	public Farmaco(long id) {
 		super();
-		this.idfarmaco = id;
+		this.pk_farmaco = id;
 	}
 
-	public long getIdfarmaco() {
-		return idfarmaco;
+	
+
+	public long getPk_farmaco() {
+		return pk_farmaco;
 	}
 
-	public void setIdfarmaco(long idfarmaco) {
-		this.idfarmaco = idfarmaco;
+	public void setPk_farmaco(long pk_farmaco) {
+		this.pk_farmaco = pk_farmaco;
 	}
 
 	public String getNombre() {
@@ -91,6 +95,30 @@ private static final long serialVersionUID = 1L;
 
 	public void setTipoMedicamento(String tipoMedicamento) {
 		this.tipoMedicamento = tipoMedicamento;
+	}
+	
+	@JoinColumn(name="fk_farmacia", referencedColumnName="pk_farmacia")
+	@ManyToOne
+	private Farmacia farmacia;
+
+	public Farmacia getFarmacia() {
+		return farmacia;
+	}
+
+	public void setFarmacia(Farmacia farmacia) {
+		this.farmacia = farmacia;
+	}
+	
+	@JoinColumn(name="fk_reserva", referencedColumnName="pk_reserva")
+	@ManyToOne
+	private Reserva reserva;
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
 	}
 	
 	
