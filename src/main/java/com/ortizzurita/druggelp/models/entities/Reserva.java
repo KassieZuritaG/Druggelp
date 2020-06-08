@@ -1,7 +1,6 @@
 package com.ortizzurita.druggelp.models.entities;
 import java.io.Serializable;
 import java.util.Calendar;
-
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="reserva")
+@Table(name="reservas")
 public class Reserva implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -55,17 +54,14 @@ public class Reserva implements Serializable{
 	public void setFechaReserva(Calendar fechaReserva) {
 		this.fechaReserva = fechaReserva;
 	}
-	
-	
-	public Farmacia getBotica() {
-		return botica;
+
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setBotica(Farmacia botica) {
-		this.botica = botica;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	@JoinColumn(name="fk_botica", referencedColumnName="pk_farmaco")
-	@ManyToOne
-	private Farmacia botica;
+	
 }

@@ -1,12 +1,8 @@
 package com.ortizzurita.druggelp.models.entities;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,9 +13,6 @@ public class Cliente extends Persona implements Serializable{
 
 	@Column(name="identificador")
 	private String identificador;
-	
-	@OneToMany(mappedBy="cliente", fetch=FetchType.LAZY)
-	private List<Reserva> reservas;
 
 	public Cliente() {
 		super();
