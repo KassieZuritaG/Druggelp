@@ -1,15 +1,18 @@
 package com.ortizzurita.druggelp.models.entities;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -107,4 +110,14 @@ private static final long serialVersionUID = 1L;
 	public void setFarmacia(Farmacia farmacia) {
 		this.farmacia = farmacia;
 	}	
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	@OneToMany(mappedBy="botica", fetch=FetchType.LAZY) //mappedby debe ser unAtributo en la clase relacionada
+	private List<Reserva> reservas;
 }

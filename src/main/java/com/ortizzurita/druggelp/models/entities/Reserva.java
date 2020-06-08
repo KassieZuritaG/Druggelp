@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -49,4 +51,17 @@ public class Reserva implements Serializable{
 	public void setFechaReserva(Calendar fechaReserva) {
 		this.fechaReserva = fechaReserva;
 	}
+	
+	
+	public Farmacia getBotica() {
+		return botica;
+	}
+
+	public void setBotica(Farmacia botica) {
+		this.botica = botica;
+	}
+
+	@JoinColumn(name="fk_botica", referencedColumnName="pk_farmaco")
+	@ManyToOne
+	private Farmacia botica;
 }
