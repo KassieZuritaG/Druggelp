@@ -1,12 +1,15 @@
 package com.ortizzurita.druggelp.models.entities;
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,6 +35,9 @@ public class Farmacia implements Serializable{
 
 	@Column(name="ciudad")
 	private String ciudad;
+	
+	@OneToMany(mappedBy="farmacia", fetch=FetchType.LAZY)
+	private List<Farmaco> farmacos;
 	
 	public Farmacia() {
 		super();
@@ -80,5 +86,13 @@ public class Farmacia implements Serializable{
 
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
+	}
+
+	public List<Farmaco> getFarmacos() {
+		return farmacos;
+	}
+
+	public void setFarmacos(List<Farmaco> farmacos) {
+		this.farmacos = farmacos;
 	}
 }

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -36,6 +38,10 @@ private static final long serialVersionUID = 1L;
 
 	@Column(name="tipo_medicamento")
 	private String tipoMedicamento;
+	
+	@JoinColumn(name="fk_farmacia", referencedColumnName="pk_farmacia")
+	@ManyToOne
+	private Farmacia farmacia;
 
 	public Farmaco() {
 		super();
@@ -92,5 +98,13 @@ private static final long serialVersionUID = 1L;
 
 	public void setTipoMedicamento(String tipoMedicamento) {
 		this.tipoMedicamento = tipoMedicamento;
+	}
+
+	public Farmacia getFarmacia() {
+		return farmacia;
+	}
+
+	public void setFarmacia(Farmacia farmacia) {
+		this.farmacia = farmacia;
 	}	
 }
