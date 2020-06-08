@@ -26,6 +26,10 @@ public class Reserva implements Serializable{
 	
 	@Column(name="fecha_reserva")
 	private Calendar fechaReserva;
+	
+	@JoinColumn(name="fk_cliente", referencedColumnName="pk_persona")
+	@ManyToOne
+	private Cliente cliente;
 
 	public Reserva() {
 		super();
