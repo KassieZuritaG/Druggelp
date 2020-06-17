@@ -24,23 +24,23 @@
 						<thead>
 							<tr>
 								<th>Nombre</th>
-								<th>Apellido</th>
-								<th>C&eacute;dula</th>
-								<th>Fecha de nacimiento</th>
+								<th>Telefono</th>
+								<th>Direcci&oacute;n</th>
+								<th>Ciudad</th>
 								<th><a class="btn btn-sm btn-success"
-									th:href="@{/farmaceutico/create}">&nbsp;Nuevo</a></th>
+									th:href="@{/administrador/create}">&nbsp;Nuevo</a></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="fm : ${farmaceuticos}">
-								<td th:text="${fm.nombre}"></td>
-								<td th:text="${fm.apellido}"></td>
-								<td th:text="${fm.cedula}"></td>
-								<td th:text="${fm.fechaNac()}"></td>
+							<tr th:each="admin : ${administradores}">
+								<td th:text="${admin.nombre}"></td>
+								<td th:text="${admin.apellido}"></td>
+								<td th:text="${admin.cedula}"></td>
+								<td th:text="${admin.fechaNac()}"></td>
 								<td><a class="btn btn-sm btn-warning"
-									th:href="@{/farmaceutico/update/} + ${fm.idpersona}">&nbsp;Actualizar</a>
+									th:href="@{/administrador/update/} + ${admin.idpersona}">&nbsp;Actualizar</a>
 									<a class="btn btn-sm btn-info"
-									th:href="@{/farmaceutico/retrieve/} + ${fm.idpersona}">&nbsp;Consultar</a>
+									th:href="@{/administrador/retrieve/} + ${admin.idpersona}">&nbsp;Consultar</a>
 								</td>
 							</tr>
 						</tbody>
