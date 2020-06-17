@@ -35,7 +35,7 @@ public class Farmaceutico extends Persona implements Serializable {
 	
 	public Farmaceutico(long id) {
 		super();
-		this.setPk_persona(id);
+		this.setIdpersona(id);
 	}
 
 	public String getTitulo() {

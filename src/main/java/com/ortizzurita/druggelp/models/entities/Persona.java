@@ -21,7 +21,7 @@ public abstract class  Persona {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name="pk_persona")
-	private long pk_persona;
+	private long idpersona;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -55,15 +55,15 @@ public abstract class  Persona {
 	
 	public Persona(long id) {
 		super();
-		this.pk_persona = id;
+		this.idpersona = id;
+	}
+	
+	public long getIdpersona() {
+		return idpersona;
 	}
 
-	public long getPk_persona() {
-		return pk_persona;
-	}
-
-	public void setPk_persona(long pk_persona) {
-		this.pk_persona = pk_persona;
+	public void setIdpersona(long idpersona) {
+		this.idpersona = idpersona;
 	}
 
 	public String getNombre() {
