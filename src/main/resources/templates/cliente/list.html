@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: frgHead"></head>
+<body id="page-top">
+
+	<div id="wrapper">
+		<ul th:replace="layout :: frgSideBar"></ul>
+
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<div id="content">
+
+				<nav th:replace="layout :: frgTopBar"></nav>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 th:text="${title}" class="h3 mb-0 text-gray-800"></h1>
+					</div>					
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Apellido</th>
+								<th>C&eacute;dula</th>
+								<th>Fecha de nacimiento</th>
+								<th><a class="btn btn-sm btn-success"
+									th:href="@{/cliente/create}">&nbsp;Nuevo</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="clien : ${clientes}">
+								<td th:text="${clien.nombre}"></td>
+								<td th:text="${clien.apellido}"></td>
+								<td th:text="${clien.cedula}"></td>
+								<td th:text="${clien.fechaNac()}"></td>
+								<td><a class="btn btn-sm btn-warning"
+									th:href="@{/cliente/update/} + ${clien.idpersona}">&nbsp;Actualizar</a>
+									<a class="btn btn-sm btn-info"
+									th:href="@{/cliente/retrieve/} + ${clien.idpersona}">&nbsp;Consultar</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			
+			<footer th:replace="layout :: frgFooter"></footer>
+
+		</div>
+
+	</div>
+	
+
+</body>
+</html>
