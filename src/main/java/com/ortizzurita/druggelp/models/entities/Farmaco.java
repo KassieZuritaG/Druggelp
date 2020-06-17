@@ -1,5 +1,6 @@
 package com.ortizzurita.druggelp.models.entities;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -10,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="farmacos")
@@ -21,7 +26,7 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="pk_farmaco")
-	private long pk_farmaco;
+	private Integer pk_farmaco;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -30,6 +35,8 @@ private static final long serialVersionUID = 1L;
 	private float costo;
 	
 	@Column(name="fecha_expiracion")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
 	private Calendar fechaExpiracion;
 	
 	@Column(name="cantidad")
@@ -42,18 +49,16 @@ private static final long serialVersionUID = 1L;
 		super();
 	}
 
-	public Farmaco(long id) {
+	public Farmaco(Integer id) {
 		super();
 		this.pk_farmaco = id;
 	}
 
-	
-
-	public long getPk_farmaco() {
+	public Integer getPk_farmaco() {
 		return pk_farmaco;
 	}
 
-	public void setPk_farmaco(long pk_farmaco) {
+	public void setPk_farmaco(Integer pk_farmaco) {
 		this.pk_farmaco = pk_farmaco;
 	}
 
@@ -124,5 +129,10 @@ private static final long serialVersionUID = 1L;
 	@Override
 	public String toString() {
 		return this.getNombre();
+	}
+	
+	public String fecha() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaExpiracion.getTime());
 	}
 }

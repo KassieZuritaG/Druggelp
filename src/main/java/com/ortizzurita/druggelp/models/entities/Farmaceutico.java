@@ -33,7 +33,7 @@ public class Farmaceutico extends Persona implements Serializable {
 		super();
 	}
 	
-	public Farmaceutico(long id) {
+	public Farmaceutico(Integer id) {
 		super();
 		this.setIdpersona(id);
 	}

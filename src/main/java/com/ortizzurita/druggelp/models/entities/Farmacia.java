@@ -22,7 +22,7 @@ public class Farmacia implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="pk_farmacia")
-	private long idfarmacia;
+	private Integer idfarmacia;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -40,16 +40,16 @@ public class Farmacia implements Serializable{
 		super();
 	}
 
-	public Farmacia(long id) {
+	public Farmacia(Integer id) {
 		super();
 		this.idfarmacia = id;
 	}
 
-	public long getIdfarmacia() {
+	public Integer getIdfarmacia() {
 		return idfarmacia;
 	}
 
-	public void setIdfarmacia(long idfarmacia) {
+	public void setIdfarmacia(Integer idfarmacia) {
 		this.idfarmacia = idfarmacia;
 	}
 

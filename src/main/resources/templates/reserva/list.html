@@ -23,24 +23,18 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>Nombre</th>
-								<th>Tel&eacute;fono</th>
-								<th>Direcci&oacute;n</th>
-								<th>Ciudad</th>
+								<th>Fecha de la Reserva</th>
 								<th><a class="btn btn-sm btn-success"
-									th:href="@{/farmacia/create}">&nbsp;Nuevo</a></th>
+									th:href="@{/reserva/create}">&nbsp;Nuevo</a></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="f : ${farmacias}">
-								<td th:text="${f.nombre}"></td>
-								<td th:text="${f.telefono}"></td>
-								<td th:text="${f.direccion}"></td>
-								<td th:text="${f.ciudad}"></td>
+							<tr th:each="reser : ${reservas}">
+								<td th:text="${reser.fechareser()}"></td>
 								<td><a class="btn btn-sm btn-warning"
-									th:href="@{/farmacia/update/} + ${f.idfarmacia}">&nbsp;Actualizar</a>
+									th:href="@{/reserva/update/} + ${reser.idreserva}">&nbsp;Actualizar</a>
 									<a class="btn btn-sm btn-info"
-									th:href="@{/farmacia/retrieve/} + ${f.idfarmacia}">&nbsp;Consultar</a>
+									th:href="@{/reserva/retrieve/} + ${reser.idreserva}">&nbsp;Consultar</a>
 								</td>
 							</tr>
 						</tbody>

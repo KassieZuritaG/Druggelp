@@ -31,13 +31,9 @@
 												th:object="${farmaceutico}" method="post">
 												<hr>
 												<div class="form-group row">
-													<div class="col-sm-6 mb-3 mb-sm-0">
+													<div class="col-sm-12 mb-2 mb-sm-0">
 														<input type="text" class="form-control form-control-user"
 															th:field="*{cedula}" placeholder="C&eacute;dula">
-													</div>
-													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="text" class="form-control form-control-user"
-															th:field="*{identificador}" placeholder="Identificador">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -68,6 +64,7 @@
 															placeholder="T&iacute;tulo">
 													</div>
 													<div class="col-sm-4 mb-3 mb-sm-0">
+														<h6>Fecha de ingreso:</h6>
 														<input type="date" class="form-control form-control-user"
 															th:field="*{fechaIngreso}" placeholder="Fecha de Ingreso">
 													</div>
@@ -76,7 +73,7 @@
 															th:field="*{tipoContrato}" placeholder="Tipo de Contrato">
 													</div>
 												</div>								
-												
+												<hr>
 												<h6>Datos de nacimiento:</h6>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
@@ -88,14 +85,16 @@
 															th:field="*{lugarNacimiento}" placeholder="Lugar">
 													</div>
 												</div>
+												<hr>
+												<h6>Seleccione:</h6>
 												<div class="form-group">
 													<div class="col-sm-6 mb-3 mb-sm-0">
 														<label class="radio-inline"><input type="radio"
-															th:field="*{sexo}" value="M" checked />&nbsp;Mujer</label>
+															th:field="*{sexo}" value="Mujer" checked />&nbsp;Mujer</label>
 													</div>
 													<div class="col-sm-6">
 														<label class="radio-inline"><input type="radio"
-															th:field="*{sexo}" value="H" />&nbsp;Hombre</label>
+															th:field="*{sexo}" value="Hombre" />&nbsp;Hombre</label>
 													</div>
 												</div>
 

@@ -21,7 +21,7 @@ public abstract class  Persona {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name="pk_persona")
-	private long idpersona;
+	private Integer idpersona;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -53,16 +53,16 @@ public abstract class  Persona {
 		super();
 	}
 	
-	public Persona(long id) {
+	public Persona(Integer id) {
 		super();
 		this.idpersona = id;
 	}
-	
-	public long getIdpersona() {
+
+	public Integer getIdpersona() {
 		return idpersona;
 	}
 
-	public void setIdpersona(long idpersona) {
+	public void setIdpersona(Integer idpersona) {
 		this.idpersona = idpersona;
 	}
 
@@ -138,7 +138,5 @@ public abstract class  Persona {
 	public String fechaNac() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
 		return sdf.format(fechaNacimiento.getTime());
-	}
-	
-	
+	}	
 }

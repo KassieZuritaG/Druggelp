@@ -19,7 +19,7 @@ public class Administrador extends Persona implements Serializable {
 		super();
 	}
 	
-	public Administrador(long id) {
+	public Administrador(Integer id) {
 		super();
 		this.setIdpersona(id);
 	}

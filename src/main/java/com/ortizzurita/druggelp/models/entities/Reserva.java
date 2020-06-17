@@ -1,5 +1,6 @@
 package com.ortizzurita.druggelp.models.entities;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -14,6 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="reservas")
@@ -25,25 +30,27 @@ public class Reserva implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="pk_reserva")
-	private long idreserva;
+	private Integer idreserva;
 	
 	@Column(name="fecha_reserva")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
 	private Calendar fechaReserva;
 
 	public Reserva() {
 		super();
 	}
 
-	public Reserva(long id) {
+	public Reserva(Integer id) {
 		super();
 		this.idreserva = id;
 	}
 
-	public long getIdreserva() {
+	public Integer getIdreserva() {
 		return idreserva;
 	}
 
-	public void setIdreserva(long idreserva) {
+	public void setIdreserva(Integer idreserva) {
 		this.idreserva = idreserva;
 	}
 
@@ -83,4 +90,8 @@ public class Reserva implements Serializable{
 		return String.valueOf(this.getIdreserva());
 	}
 	
+	public String fechareser() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaReserva.getTime());
+	}
 }

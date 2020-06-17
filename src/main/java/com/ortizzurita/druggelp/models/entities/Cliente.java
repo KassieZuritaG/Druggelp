@@ -22,7 +22,7 @@ public class Cliente extends Persona implements Serializable{
 		super();
 	}
 	
-	public Cliente(long id) {
+	public Cliente(Integer id) {
 		super();
 		this.setIdpersona(id);
 	}

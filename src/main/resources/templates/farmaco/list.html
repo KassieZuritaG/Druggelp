@@ -24,23 +24,25 @@
 						<thead>
 							<tr>
 								<th>Nombre</th>
-								<th>Tel&eacute;fono</th>
-								<th>Direcci&oacute;n</th>
-								<th>Ciudad</th>
+								<th>Costo</th>
+								<th>Fecha de expiraci&oacute;n</th>
+								<th>Cantidad</th>
+								<th>Tipo de medicamento</th>
 								<th><a class="btn btn-sm btn-success"
-									th:href="@{/farmacia/create}">&nbsp;Nuevo</a></th>
+									th:href="@{/farmaco/create}">&nbsp;Nuevo</a></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="f : ${farmacias}">
-								<td th:text="${f.nombre}"></td>
-								<td th:text="${f.telefono}"></td>
-								<td th:text="${f.direccion}"></td>
-								<td th:text="${f.ciudad}"></td>
+							<tr th:each="far : ${farmacos}">
+								<td th:text="${far.nombre}"></td>
+								<td th:text="${far.costo}"></td>
+								<td th:text="${far.fecha()}"></td>
+								<td th:text="${far.cantidad}"></td>
+								<td th:text="${far.tipoMedicamento}"></td>
 								<td><a class="btn btn-sm btn-warning"
-									th:href="@{/farmacia/update/} + ${f.idfarmacia}">&nbsp;Actualizar</a>
+									th:href="@{/farmaco/update/} + ${far.pk_farmaco}">&nbsp;Actualizar</a>
 									<a class="btn btn-sm btn-info"
-									th:href="@{/farmacia/retrieve/} + ${f.idfarmacia}">&nbsp;Consultar</a>
+									th:href="@{/farmaco/retrieve/} + ${far.pk_farmaco}">&nbsp;Consultar</a>
 								</td>
 							</tr>
 						</tbody>

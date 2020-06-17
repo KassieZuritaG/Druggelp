@@ -25,69 +25,42 @@
 									<div class="col-lg-7">
 										<div class="p-5">
 											<div class="text-center">
-												<h1 th:text="${administrador}" class="h4 text-gray-900 mb-4"></h1>
+												<h1 th:text="${farmacia}" class="h4 text-gray-900 mb-4"></h1>
 											</div>
 											<hr>
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">
+												<h6>Nombre de la farmacia:</h6>
 													<label class="form-control form-control-user"
-														th:text="${administrador.cedula}"></label>
-												</div>
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${administrador.identificador}"></label>
-												</div>
-											</div>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${administrador.nombre}"></label>
+														th:text="${farmacia.nombre}"></label>
 												</div>
 												<div class="form-group col-sm-6">
+												<h6>N&uacute;mero de tel&eacute;fono:</h6>
 													<label class="form-control form-control-user"
-														th:text="${administrador.apellido}"></label>
+														th:text="${farmacia.telefono}"></label>
 												</div>
 											</div>
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">
+												<h6>Direcci&oacute;n:</h6>
 													<label class="form-control form-control-user"
-														th:text="${administrador.email}"></label>
+														th:text="${farmacia.direccion}"></label>
 												</div>
 												<div class="col-sm-6 mb-3 mb-sm-0">
+												<h6>Ciudad:</h6>
 													<label class="form-control form-control-user"
-														th:text="${administrador.telefono}"></label>
+														th:text="${farmacia.ciudad}"></label>
 												</div>
 											</div>
-											<hr>
-											<h6>Datos de nacimiento:</h6>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${administrador.fechaNac()}"></label>
-												</div>
-												<div class="col-sm-6">
-													<label class="form-control form-control-user"
-														th:text="${administrador.lugarNacimiento}"></label>
-												</div>
-											</div>
-											<hr>
-											<h6>Sexo:</h6>
-											<div class="form-group">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${administrador.sexo}"></label>
-												</div>
-											</div>
-
 											<hr>											
 											<h5 class="modal-title">Desea eliminar el registro?</h5>
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">													
-													<a th:href="@{/administrador/delete/} + ${administrador.idpersona}"
+													<a th:href="@{/farmacia/delete/} + ${farmacia.idfarmacia}"
 																class="btn btn-success btn-user btn-block">Confirmar</a>
 												</div>
 												<div class="col-sm-6 mb-3 mb-sm-0">
-													<a th:href="@{/administrador/list}"
+													<a th:href="@{/farmacia/list}"
 														class="btn btn-danger btn-user btn-block">Cancelar</a>
 												</div>
 											</div>											

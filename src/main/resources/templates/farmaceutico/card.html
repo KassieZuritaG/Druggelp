@@ -33,10 +33,6 @@
 													<label class="form-control form-control-user"
 														th:text="${farmaceutico.cedula}"></label>
 												</div>
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${farmaceutico.identificador}"></label>
-												</div>
 											</div>
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">
@@ -64,6 +60,7 @@
 														th:text="${farmaceutico.titulo}"></label>
 													</div>
 													<div class="col-sm-4 mb-3 mb-sm-0">
+														<h6>Fecha de ingreso:</h6>
 														<label class="form-control form-control-user"
 														th:text="${farmaceutico.fechaIngreso()}"></label>
 													</div>
@@ -71,8 +68,9 @@
 														<label class="form-control form-control-user"
 														th:text="${farmaceutico.tipoContrato}"></label>
 													</div>
-												</div>	
-											<h6>Datos de Nacimiento:</h6>
+												</div>
+												<hr>	
+											<h6>Datos de nacimiento:</h6>
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">
 													<label class="form-control form-control-user"
@@ -83,6 +81,8 @@
 														th:text="${farmaceutico.lugarNacimiento}"></label>
 												</div>
 											</div>
+											<hr>
+											<h6>Sexo:</h6>
 											<div class="form-group">
 												<div class="col-sm-6 mb-3 mb-sm-0">
 													<label class="form-control form-control-user"

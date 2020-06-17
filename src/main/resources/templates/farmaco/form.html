@@ -27,65 +27,36 @@
 											<div class="text-center">
 												<h1 th:text="${title}" class="h4 text-gray-900 mb-4"></h1>
 											</div>
-											<form class="user" th:action="@{/administrador/save}"
-												th:object="${administrador}" method="post">
+											<form class="user" th:action="@{/farmaco/save}"
+												th:object="${farmaco}" method="post">
 												<hr>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
 														<input type="text" class="form-control form-control-user"
-															th:field="*{cedula}" placeholder="C&eacute;dula">
+															th:field="*{nombre}" placeholder="Nombre">
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="text" class="form-control form-control-user"
-															th:field="*{identificador}" placeholder="Identificador">
+														<input type="number"  step="0.001" class="form-control form-control-user"
+															th:field="*{costo}" placeholder="Costo">
 													</div>
 												</div>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="text" class="form-control form-control-user"
-															th:field="*{nombre}" placeholder="Nombres">
+														<h6>Fecha de expiraci&oacute;n:</h6>
+														<input type="date" class="form-control form-control-user"
+															th:field="*{fechaExpiracion}" placeholder="Fecha de Expiraci&oacute;n">
 													</div>
 													<div class="form-group col-sm-6">
 														<input type="text" class="form-control form-control-user"
-															th:field="*{apellido}" placeholder="Apellidos">
+															th:field="*{cantidad}" placeholder="Cantidad">
 													</div>
 												</div>
 												<div class="form-group row">
-													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="email" class="form-control form-control-user"
-															th:field="*{email}"
-															placeholder="Correo electr&oacute;nico">
-													</div>
-													<div class="col-sm-6 mb-3 mb-sm-0">
+													<div class="col-sm-12 mb-3 mb-sm-0">
 														<input type="text" class="form-control form-control-user"
-															th:field="*{telefono}" placeholder="Tel&eacute;fono">
+															th:field="*{tipoMedicamento}" placeholder="Tipo de medicamento">
 													</div>
 												</div>
-												<hr>
-												<h6>Datos de nacimiento:</h6>
-												<div class="form-group row">
-													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="date" class="form-control form-control-user"
-															th:field="*{fechaNacimiento}">
-													</div>
-													<div class="col-sm-6">
-														<input type="text" class="form-control form-control-user"
-															th:field="*{lugarNacimiento}" placeholder="Lugar">
-													</div>
-												</div>
-												<hr>
-												<h6>Seleccione:</h6>
-												<div class="form-group">
-													<div class="col-sm-6 mb-3 mb-sm-0">
-														<label class="radio-inline"><input type="radio"
-															th:field="*{sexo}" value="Mujer" checked />&nbsp;Mujer</label>
-													</div>
-													<div class="col-sm-6">
-														<label class="radio-inline"><input type="radio"
-															th:field="*{sexo}" value="Hombre" />&nbsp;Hombre</label>
-													</div>
-												</div>
-
 												<hr>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
@@ -94,12 +65,12 @@
 															value="Guardar" />
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<a th:href="@{/administrador/list}"
+														<a th:href="@{/farmaco/list}"
 															class="btn btn-danger btn-user btn-block">Cancelar</a>
 													</div>
 												</div>
 												
-												<input type="hidden" th:field="*{idpersona}" />
+												<input type="hidden" th:field="*{pk_farmaco}" />
 
 											</form>
 										</div>
