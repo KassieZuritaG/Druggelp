@@ -96,5 +96,9 @@ public class Farmacia implements Serializable{
 		this.farmacos = farmacos;
 	}
 	
+	@Override
+	public String toString() {
+		return this.getNombre()+"-"+this.getCiudad();
+	}
 	
 }

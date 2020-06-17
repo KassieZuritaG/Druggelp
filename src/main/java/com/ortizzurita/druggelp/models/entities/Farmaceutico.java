@@ -55,6 +55,9 @@ public class Farmaceutico extends Persona implements Serializable {
 		this.tipoContrato = tipoContrato;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 	
 }

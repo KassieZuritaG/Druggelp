@@ -1,5 +1,6 @@
 package com.ortizzurita.druggelp.models.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.persistence.Basic;
@@ -27,10 +28,10 @@ public abstract class  Persona {
 	@Column(name="cedula")
 	private String cedula;
 	
-	@Column(name="lugarNacimiento")
+	@Column(name="lugar_nacimiento")
 	private String lugarNacimiento;
 	
-	@Column(name="fechaNacimiento")
+	@Column(name="fecha_nacimiento")
 	private Calendar fechaNacimiento;
 	
 	@Column(name="sexo")
@@ -121,6 +122,16 @@ public abstract class  Persona {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	@Override
+	public String toString() {
+		return this.getApellido()+" "+this.getNombre();
+	}
+	
+	public String fechaNac() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaNacimiento.getTime());
 	}
 	
 	

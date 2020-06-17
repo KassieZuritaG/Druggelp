@@ -121,5 +121,8 @@ private static final long serialVersionUID = 1L;
 		this.reserva = reserva;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.getNombre();
+	}
 }

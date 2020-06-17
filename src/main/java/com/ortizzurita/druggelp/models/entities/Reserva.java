@@ -78,6 +78,9 @@ public class Reserva implements Serializable{
 		this.clientes = clientes;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return String.valueOf(this.getIdreserva());
+	}
 	
 }
