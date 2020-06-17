@@ -9,6 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @MappedSuperclass
 public abstract class  Persona {
@@ -17,7 +21,7 @@ public abstract class  Persona {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name="pk_persona")
-	private long pk_persona;
+	private long idpersona;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -32,6 +36,8 @@ public abstract class  Persona {
 	private String lugarNacimiento;
 	
 	@Column(name="fecha_nacimiento")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
 	private Calendar fechaNacimiento;
 	
 	@Column(name="sexo")
@@ -49,15 +55,15 @@ public abstract class  Persona {
 	
 	public Persona(long id) {
 		super();
-		this.pk_persona = id;
+		this.idpersona = id;
+	}
+	
+	public long getIdpersona() {
+		return idpersona;
 	}
 
-	public long getPk_persona() {
-		return pk_persona;
-	}
-
-	public void setPk_persona(long pk_persona) {
-		this.pk_persona = pk_persona;
+	public void setIdpersona(long idpersona) {
+		this.idpersona = idpersona;
 	}
 
 	public String getNombre() {
@@ -123,10 +129,10 @@ public abstract class  Persona {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-
+	
 	@Override
 	public String toString() {
-		return this.getApellido()+" "+this.getNombre();
+		return this.getApellido() + " " + this.getNombre();
 	}
 	
 	public String fechaNac() {

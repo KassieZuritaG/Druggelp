@@ -21,7 +21,7 @@ public class Administrador extends Persona implements Serializable {
 	
 	public Administrador(long id) {
 		super();
-		this.setPk_persona(id);
+		this.setIdpersona(id);
 	}
 
 	public String getIdentificador() {

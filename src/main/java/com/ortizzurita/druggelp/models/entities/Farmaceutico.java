@@ -1,11 +1,16 @@
 package com.ortizzurita.druggelp.models.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "farmaceuticos")
@@ -17,6 +22,8 @@ public class Farmaceutico extends Persona implements Serializable {
 	private String titulo;
 	
 	@Column(name="fecha_ingreso")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
 	private Calendar fechaIngreso;
 	
 	@Column(name="tipo_contrato")
@@ -28,7 +35,7 @@ public class Farmaceutico extends Persona implements Serializable {
 	
 	public Farmaceutico(long id) {
 		super();
-		this.setPk_persona(id);
+		this.setIdpersona(id);
 	}
 
 	public String getTitulo() {
@@ -54,10 +61,15 @@ public class Farmaceutico extends Persona implements Serializable {
 	public void setTipoContrato(String tipoContrato) {
 		this.tipoContrato = tipoContrato;
 	}
-	
+
 	@Override
 	public String toString() {
 		return super.toString();
+	}
+	
+	public String fechaIngreso() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaIngreso.getTime());
 	}
 	
 }

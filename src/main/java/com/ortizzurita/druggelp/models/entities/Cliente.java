@@ -24,7 +24,7 @@ public class Cliente extends Persona implements Serializable{
 	
 	public Cliente(long id) {
 		super();
-		this.setPk_persona(id);
+		this.setIdpersona(id);
 	}
 
 	public String getIdentificador() {
