@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ortizzurita.druggelp.models.entities.Cliente;
 import com.ortizzurita.druggelp.models.entities.Reserva;
+import com.ortizzurita.druggelp.models.services.IClienteService;
 import com.ortizzurita.druggelp.models.services.IReservaService;
 
 @Controller
@@ -20,11 +22,16 @@ public class ReservaController {
 	@Autowired 
 	private IReservaService srvReserva;
 	
+	@Autowired 
+	private IClienteService srvCliente;
+	
 	@GetMapping(value="/create") 
 	public String create(Model model) {
 		Reserva reserva=new Reserva();
 		model.addAttribute("title", "Registro de nuevo Reserva");
 		model.addAttribute("reserva", reserva);
+		List<Cliente> clientes = srvCliente.findAll();
+		model.addAttribute("clientes", clientes);
 		return "reserva/form";
 	}
 	
@@ -40,6 +47,8 @@ public class ReservaController {
 		Reserva reserva = srvReserva.findById(id);
 		model.addAttribute("reserva", reserva);
 		model.addAttribute("title", "Actualizando el registro de " + reserva);
+		List<Cliente> clientes = srvCliente.findAll();
+		model.addAttribute("clientes", clientes);
 		return "reserva/form";
 	}
 	

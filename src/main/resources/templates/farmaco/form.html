@@ -58,6 +58,28 @@
 													</div>
 												</div>
 												<hr>
+												<h6>Farmacia:</h6>
+												<div class="form-group row col-sm-6">
+													<select class="form-control" th:field=*{farmacia.idfarmacia}>
+														<option value=0>--Seleccione--</option>
+														<option th:each="f:${farmacia}"
+															th:value="${f.idfarmacia}"
+															th:text="${f.nombre}">
+														</option>
+													</select>
+												</div>
+												<hr>
+												<h6>Reserva:</h6>
+												<div class="form-group row col-sm-6">
+													<select class="form-control" th:field=*{reserva.idreserva}>
+														<option value=0>--Seleccione--</option>
+														<option th:each="reser:${reserva}"
+															th:value="${reser.idreserva}"
+															th:text="${reser.fechareser()}">
+														</option>
+													</select>
+												</div>	
+												<hr>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
 														<input type="submit"

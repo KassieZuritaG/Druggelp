@@ -28,6 +28,8 @@
 								<th>Fecha de expiraci&oacute;n</th>
 								<th>Cantidad</th>
 								<th>Tipo de medicamento</th>
+								<th>Farmacia</th>
+								<th>Reserva</th>
 								<th><a class="btn btn-sm btn-success"
 									th:href="@{/farmaco/create}">&nbsp;Nuevo</a></th>
 							</tr>
@@ -39,6 +41,8 @@
 								<td th:text="${far.fecha()}"></td>
 								<td th:text="${far.cantidad}"></td>
 								<td th:text="${far.tipoMedicamento}"></td>
+								<td th:text="${far.farmacia.nombre}"></td>
+								<td th:text="${far.reserva.fechareser()}"></td>
 								<td><a class="btn btn-sm btn-warning"
 									th:href="@{/farmaco/update/} + ${far.pk_farmaco}">&nbsp;Actualizar</a>
 									<a class="btn btn-sm btn-info"

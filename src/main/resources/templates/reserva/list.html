@@ -24,6 +24,7 @@
 						<thead>
 							<tr>
 								<th>Fecha de la Reserva</th>
+								<th>Cliente</th>
 								<th><a class="btn btn-sm btn-success"
 									th:href="@{/reserva/create}">&nbsp;Nuevo</a></th>
 							</tr>
@@ -31,6 +32,7 @@
 						<tbody>
 							<tr th:each="reser : ${reservas}">
 								<td th:text="${reser.fechareser()}"></td>
+								<td th:text="${reser.clientes.nombre}"></td>
 								<td><a class="btn btn-sm btn-warning"
 									th:href="@{/reserva/update/} + ${reser.idreserva}">&nbsp;Actualizar</a>
 									<a class="btn btn-sm btn-info"

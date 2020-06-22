@@ -10,8 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ortizzurita.druggelp.models.entities.Cliente;
+import com.ortizzurita.druggelp.models.entities.Farmacia;
 import com.ortizzurita.druggelp.models.entities.Farmaco;
+import com.ortizzurita.druggelp.models.entities.Reserva;
+import com.ortizzurita.druggelp.models.services.IFarmaciaService;
 import com.ortizzurita.druggelp.models.services.IFarmacoService;
+import com.ortizzurita.druggelp.models.services.IReservaService;
 
 @Controller
 @RequestMapping(value="/farmaco")
@@ -20,11 +25,21 @@ public class FarmacoController {
 	@Autowired 
 	private IFarmacoService srvFarmaco;
 	
+	@Autowired 
+	private IFarmaciaService srvFarmacia;
+	
+	@Autowired 
+	private IReservaService srvReserva;
+	
 	@GetMapping(value="/create") 
 	public String create(Model model) {
 		Farmaco farmaco=new Farmaco();
 		model.addAttribute("title", "Registro de nuevo Farmaco");
 		model.addAttribute("farmaco", farmaco);
+		List<Farmacia> farmacias = srvFarmacia.findAll();
+		model.addAttribute("farmacia",farmacias);
+		List<Reserva> reservas = srvReserva.findAll();
+		model.addAttribute("reserva",reservas);
 		return "farmaco/form";
 	}
 	
@@ -40,6 +55,10 @@ public class FarmacoController {
 		Farmaco farmaco = srvFarmaco.findById(id);
 		model.addAttribute("farmaco", farmaco);
 		model.addAttribute("title", "Actualizando el registro de " + farmaco);
+		List<Farmacia> farmacias = srvFarmacia.findAll();
+		model.addAttribute("farmacia",farmacias);
+		List<Reserva> reservas = srvReserva.findAll();
+		model.addAttribute("reserva",reservas);
 		return "farmaco/form";
 	}
 	

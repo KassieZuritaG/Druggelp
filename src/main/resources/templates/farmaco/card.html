@@ -52,6 +52,22 @@
 														th:text="${farmaco.cantidad}"></label>
 												</div>
 											</div>
+											<hr>
+											<h6>Farmacia:</h6>
+											<div class="form-group row">
+												<div class="col-sm-6 mb-3 mb-sm-0">
+													<label class="form-control form-control-user"
+														th:text="${farmaco.farmacia.nombre}"></label>
+												</div>
+											</div>
+											<hr>
+											<h6>Reserva:</h6>
+											<div class="form-group row">
+												<div class="col-sm-6 mb-3 mb-sm-0">
+													<label class="form-control form-control-user"
+														th:text="${farmaco.reserva.fechareser()}"></label>
+												</div>
+											</div>
 											<hr>											
 											<h5 class="modal-title">Desea eliminar el registro?</h5>
 											<div class="form-group row">

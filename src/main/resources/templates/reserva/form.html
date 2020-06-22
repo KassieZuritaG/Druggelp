@@ -35,6 +35,17 @@
 														<h6>Fecha de reserva:</h6>
 														<input type="date" class="form-control form-control-user" th:field="*{fechaReserva}">
 													</div>
+												</div>
+												<hr>
+												<h6>Cliente:</h6>
+												<div class="form-group row col-sm-6">
+													<select class="form-control" th:field=*{clientes.idpersona}>
+														<option value=0>--Seleccione--</option>
+														<option th:each="cli:${clientes}"
+															th:value="${cli.idpersona}"
+															th:text="${cli.nombre}">
+														</option>
+													</select>
 												</div>							
 												<hr>
 												<div class="form-group row">
